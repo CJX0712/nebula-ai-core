@@ -1,5 +1,12 @@
 # Nebula AI Core
 
+<p align="center">
+  <a href="https://github.com/CJX0712/nebula-ai-core-0ef0/actions/workflows/ci.yml"><img src="https://github.com/CJX0712/nebula-ai-core-0ef0/actions/workflows/ci.yml/badge.svg" alt="ci"></a>
+  <a href="https://github.com/CJX0712/nebula-ai-core-0ef0/releases"><img src="https://img.shields.io/github/v/release/CJX0712/nebula-ai-core-0ef0?sort=semver" alt="release"></a>
+  <a href="https://github.com/CJX0712/nebula-ai-core-0ef0/blob/main/LICENSE"><img src="https://img.shields.io/github/license/CJX0712/nebula-ai-core-0ef0" alt="license"></a>
+  <img src="https://img.shields.io/badge/author-%E6%99%A8%E6%98%9F-1f6feb" alt="author">
+</p>
+
 > 端到端可运行的世界级 AI 引擎：加载 → 分块 → 嵌入 → 向量库 → 稀疏检索 → 混合检索 → 重排 → 大模型 → RAG → 智能体。
 > **作者：晨星** ｜ 许可证：MIT
 
