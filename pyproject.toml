@@ -1,0 +1,42 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "nebula-ai-core"
+version = "1.0.0"
+description = "端到端可运行 AI 引擎：加载/分块/嵌入/向量/稀疏检索/混合检索/重排/大模型/RAG/智能体"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "晨星" }]
+keywords = ["ai", "rag", "llm", "agent", "vector-search", "embeddings"]
+dependencies = [
+    "numpy==2.5.3",
+    "fastapi==0.141.1",
+    "uvicorn==0.53.0",
+    "pydantic==2.13.5",
+    "loguru==0.7.3",
+    "httpx==0.28.1",
+]
+
+[project.optional-dependencies]
+prod = [
+    "faiss-cpu==1.15.0",
+    "fastembed==0.8.0",
+    "llama-cpp-python==0.3.19",
+    "rank-bm25==0.2.2",
+    "pypdf==6.18.1",
+    "onnxruntime==1.30.0",
+]
+dev = ["pytest==8.4.2", "pytest-asyncio==1.2.0"]
+
+[project.scripts]
+nebula = "nebula.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]

@@ -1,0 +1,148 @@
+openapi: 3.0.3
+info:
+  title: Nebula AI Core
+  version: 1.0.0
+  description: 端到端可运行 AI 引擎（RAG + 智能体）。作者：晨星
+  license:
+    name: MIT
+paths:
+  /health:
+    get:
+      summary: 健康检查与后端状态
+      responses:
+        "200":
+          description: 服务正常
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: ok
+                  version:
+                    type: string
+                    example: "1.0.0"
+                  llm:
+                    type: string
+                    example: deterministic
+                  embedder:
+                    type: string
+                    example: hash
+                  vector_store:
+                    type: string
+                    example: memory
+                  indexed_chunks:
+                    type: integer
+                    example: 0
+  /ingest:
+    post:
+      summary: 索引一篇文档
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [source]
+              properties:
+                source:
+                  type: string
+                  description: 文件路径（.txt/.md/.pdf）
+      responses:
+        "200":
+          description: 索引统计
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  doc_id:
+                    type: string
+                  title:
+                    type: string
+                  source:
+                    type: string
+                  chunks:
+                    type: integer
+  /query:
+    post:
+      summary: RAG 问答
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [question]
+              properties:
+                question:
+                  type: string
+                top_k:
+                  type: integer
+                  nullable: true
+      responses:
+        "200":
+          description: 问答结果
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  answer:
+                    type: string
+                  query:
+                    type: string
+                  contexts:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        chunk_id:
+                          type: string
+                        doc_id:
+                          type: string
+                        text:
+                          type: string
+                        score:
+                          type: number
+                  meta:
+                    type: object
+  /agent:
+    post:
+      summary: 智能体推理
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [query]
+              properties:
+                query:
+                  type: string
+      responses:
+        "200":
+          description: 推理结果
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  answer:
+                    type: string
+                  query:
+                    type: string
+                  steps:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        thought:
+                          type: string
+                        action:
+                          type: string
+                        observation:
+                          type: string
+                  meta:
+                    type: object
