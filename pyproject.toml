@@ -29,7 +29,7 @@ prod = [
     "pypdf==6.18.1",
     "onnxruntime==1.30.0",
 ]
-dev = ["pytest==8.4.2", "pytest-asyncio==1.2.0"]
+dev = ["pytest==9.1.1", "pytest-asyncio==1.2.0"]
 
 [project.scripts]
 nebula = "nebula.cli:main"
