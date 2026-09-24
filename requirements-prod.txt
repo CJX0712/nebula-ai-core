@@ -2,9 +2,9 @@
 # 作者: 晨星
 # 启用方式：pip install -r requirements-prod.txt，再用环境变量切换后端：
 #   NEBULA_EMBEDDER=fastembed  NEBULA_VECTOR_STORE=faiss  NEBULA_LLM=llamacpp
-faiss-cpu==1.15.0
+faiss-cpu==1.15.1
 fastembed==0.8.0
-llama-cpp-python==0.3.19
+llama-cpp-python==0.3.35
 rank-bm25==0.2.2
-pypdf==6.18.1
+pypdf==6.19.0
 onnxruntime==1.30.0

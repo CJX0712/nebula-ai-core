@@ -22,14 +22,14 @@ dependencies = [
 
 [project.optional-dependencies]
 prod = [
-    "faiss-cpu==1.15.0",
+    "faiss-cpu==1.15.1",
     "fastembed==0.8.0",
-    "llama-cpp-python==0.3.19",
+    "llama-cpp-python==0.3.35",
     "rank-bm25==0.2.2",
-    "pypdf==6.18.1",
+    "pypdf==6.19.0",
     "onnxruntime==1.30.0",
 ]
-dev = ["pytest==8.4.2", "pytest-asyncio==1.2.0"]
+dev = ["pytest==8.4.2", "pytest-asyncio==1.4.0"]
 
 [project.scripts]
 nebula = "nebula.cli:main"
