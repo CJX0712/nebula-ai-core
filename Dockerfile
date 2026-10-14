@@ -5,7 +5,7 @@
 # requirements-prod.txt (faiss / fastembed / llama-cpp-python 等重后端) 默认不安装 ——
 # 镜像默认使用 requirements.txt 的最小闭包离线栈, 开箱即用。需要生产后端时:
 #   docker build --build-arg WITH_PROD=1 -t nebula-ai-core .
-FROM python:3.13-slim
+FROM python:3.14-slim
 
 ENV PYTHONUNBUFFERED=1 \
     PYTHONIOENCODING=utf-8 \
